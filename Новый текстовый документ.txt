@@ -1,0 +1,45 @@
+def check_passord():
+    # Запрошиваем у пользователя количество паролей для генерации
+    number = int(input('Сколько паролей необходимо сгенерировать?' + '\n'))
+    while True:
+        if number.isdigit() and int(number) > 0:
+            return int(number)
+        else:
+            number = input('Ошибка ввода. Пожалуйста, введите число положительное целое число.')
+
+    # Запрашиваем длину одного пароля
+    length = int(input('Задайте длину для пароля:' + '\n'))
+    while True:
+        if length.isdigit() and int(length) > 0:
+            return int(length)
+        else:
+            length = input('Ошибка ввода. Пожалуйста, введите число положительное целое число.')
+
+    # Запрашиваем включать ли цифры в пароль
+    digits_in_pass = input('Включить цифры в пароль?' + '\n')
+    if digits_in_pass.lower() == 'да' or 'yes':
+        chars += string.digits
+
+    # Запрашиваем включать ли заглавные буквы в пароль
+    upper_letter = input('Включать ли заглавные буквы в пароль?' + '\n')
+    include_upper_letter = upper_letter.lower() == 'да' or 'yes'
+
+    # Запрашиваем включать ли строчные буквы в пароль
+    lower_letter = input('Включать ли строчные буквы в пароль?' + '\n')
+    include_lower_letter = lower_letter.lower() == 'да' or 'yes'
+
+    # Запрашиваем включать ли спец символы в пароль?
+    special_symbol = input('Включать ли специальные символы в пароь?' + '\n')
+    include_special_symbol = special_symbol.lower() == 'да' or 'yes'
+
+    # Запрашиваем исключать ли неоднозначные символы
+    exclude_symbol = input('Исключать ли неоднозначные символы "il1Lo0O"?' + '\n')
+    exclude_ambiguous_symbol = exclude_symbol.lower() == 'да' or 'yes'
+
+window = tk.TK()
+label = tk.Label(text = 'Привет! Я могу создать для вас пароль.')
+label.pack()
+
+button = tk.Button(text = 'Сгенерировать пароль', width = 30, height = 5) 
+
+window.mainloop()
